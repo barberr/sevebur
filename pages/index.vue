@@ -1,0 +1,44 @@
+<template>
+    <div class="container">
+        <Header />
+
+        <CallbackBlock />
+
+        <TypeofwellBlock />
+
+        <AdvantagesBlock />
+
+        <DomesticuseBlock />
+
+        <WatersupplyBlock />
+
+        <WellconstructionBlock />
+
+        <ReasonsBlock />
+
+        <!-- <Gallery /> -->
+        <GallerySwiper />
+        <Footer />
+    </div>
+</template>
+<script setup>
+// import GallerySwiper from '@/components/GallerySwiper.vue';
+
+// const galleryImages = [
+//     {
+//         src: '/Group54',
+//         alt: 'Описание фото 1',
+//         caption: 'Подпись к фото 1',
+//     },
+//     {
+//         src: '/Group54.png',
+//         alt: 'Описание фото 2',
+//         caption: 'Подпись к фото 2',
+//     },
+//     {
+//         src: '/Group54.png',
+//         alt: 'Описание фото 3',
+//         caption: 'Подпись к фото 3',
+//     },
+// ];
+</script>
