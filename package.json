@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.13.2",
     "@vueuse/core": "^13.3.0",
+    "maska": "^3.1.1",
     "nuxt": "^3.16.2",
     "nuxt-swiper": "^2.0.1",
     "photoswipe": "^5.4.4",

@@ -25,13 +25,17 @@
                         обустройством
                     </div>
 
-                    <form class="flex flex-col gap-4 w-[83%] pt-8 lg:p-8">
+                    <form
+                        class="flex flex-col gap-4 w-[83%] pt-8 lg:p-8"
+                        @submit.prevent="submitForm"
+                    >
                         <input
                             type="text"
                             id="name"
                             name="name"
                             placeholder="Введите ваше имя"
-                            class="h-[40px] md:h-[70px] px-4 py-2 border border-gray-300 rounded-large focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            v-model="callbackform.name"
+                            class="h-[40px] md:h-[70px] px-4 py-2 border border-gray-300 rounded-large focus:outline-none focus:ring-2 focus:ring-blue-500 text-2xl"
                             required
                         />
 
@@ -39,8 +43,11 @@
                             type="tel"
                             id="phone"
                             name="phone"
-                            placeholder="Введите ваш номер"
-                            class="h-[40px] md:h-[70px] px-4 py-2 border border-gray-300 rounded-large focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            v-maska
+                            data-maska="+7 (###) ###-##-##"
+                            placeholder="+7 (ХХХ) ХХХ-ХХ-ХХ"
+                            v-model="callbackform.phone"
+                            class="h-[40px] md:h-[70px] px-4 py-2 border border-gray-300 rounded-large focus:outline-none focus:ring-2 focus:ring-blue-500 text-2xl"
                             required
                         />
 
@@ -50,9 +57,11 @@
                         >
                             Перезвоните мне
                         </button>
+                        <p v-if="submitted">Спасибо! Мы вам перезвоним.</p>
                     </form>
                     <div
-                        class="text-ssm md:text-base lg:text-xl text-gray-light w-[88%] text-center py-6"
+                        v-if="!submitted"
+                        class="text-ssm md:text-base lg:text-xl text-gray-light w-[88%] text-center py-6 lg:py-0 lg:pb-6"
                     >
                         Нажимая на кнопку, вы даете согласие на обработку
                         персональных данных и соглашаетесь с политикой
@@ -66,4 +75,26 @@
         </div>
     </div>
 </template>
-<script lang="ts"></script>
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue';
+
+const callbackform = ref({
+    name: '',
+    phone: '',
+});
+const submitted = ref(false);
+
+async function submitForm() {
+    try {
+        const response = await $fetch('/api/callback', {
+            method: 'POST',
+            body: callbackform.value,
+        });
+        console.log('Success:', response);
+        submitted.value = true;
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Произошла ошибка при отправке.');
+    }
+}
+</script>

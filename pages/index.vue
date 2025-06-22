@@ -21,7 +21,8 @@
         <Footer />
     </div>
 </template>
-<script setup>
+<script setup lang="ts">
+// const { data } = await useFetch('/api/hello');
 // import GallerySwiper from '@/components/GallerySwiper.vue';
 
 // const galleryImages = [
