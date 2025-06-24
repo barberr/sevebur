@@ -57,7 +57,12 @@
                         >
                             Перезвоните мне
                         </button>
-                        <p v-if="submitted">Спасибо! Мы вам перезвоним.</p>
+                        <div
+                            class="text-xl md:text-2xl lg:text-3xl text-red w-full text-center py-6 lg:py-0 lg:pb-6"
+                            v-if="submitted"
+                        >
+                            Спасибо! Мы вам перезвоним.
+                        </div>
                     </form>
                     <div
                         v-if="!submitted"
