@@ -1,25 +1,27 @@
 <template>
-    <div class="container">
-        <Header />
+    <ClientOnly>
+        <div class="container">
+            <Header />
 
-        <CallbackBlock />
+            <CallbackBlock />
 
-        <TypeofwellBlock />
+            <TypeofwellBlock />
 
-        <AdvantagesBlock />
+            <AdvantagesBlock />
 
-        <DomesticuseBlock />
+            <DomesticuseBlock />
 
-        <WatersupplyBlock />
+            <WatersupplyBlock />
 
-        <WellconstructionBlock />
+            <WellconstructionBlock />
 
-        <ReasonsBlock />
+            <ReasonsBlock />
 
-        <!-- <Gallery /> -->
-        <GallerySwiper />
-        <Footer />
-    </div>
+            <!-- <Gallery /> -->
+            <GallerySwiper />
+            <Footer />
+        </div>
+    </ClientOnly>
 </template>
 <script setup lang="ts">
 // const { data } = await useFetch('/api/hello');

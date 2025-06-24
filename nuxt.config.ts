@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     devtools: { enabled: false },
     vite: {
         build: {
-            minify: false, // для проверки
+            minify: true, // для проверки
         },
     },
 });
