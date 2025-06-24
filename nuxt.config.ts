@@ -18,4 +18,9 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-06-16',
     modules: ['@nuxtjs/tailwindcss', 'nuxt-swiper'],
     devtools: { enabled: false },
+    vite: {
+        build: {
+            minify: false, // для проверки
+        },
+    },
 });
