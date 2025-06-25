@@ -12,11 +12,15 @@
         <div class="gallery-wrapper mt-[50px]">
             <!-- Карусель с миниатюрами -->
             <Swiper
-                :slides-per-view="3"
+                :slides-per-view="slidesPerView"
                 :space-between="10"
                 class="thumbnail-swiper"
             >
-                <SwiperSlide v-for="(image, index) in slides" :key="index">
+                <SwiperSlide
+                    v-for="(image, index) in slides"
+                    :key="index"
+                    :style="{ width: slideWidth }"
+                >
                     <img
                         :src="image.thumbnail"
                         :alt="'Thumbnail ' + index"
@@ -118,20 +122,52 @@ const slides = ref([
     // ... (ваши изображения, как в предыдущем примере)
     // Добавьте больше изображений для демонстрации
     {
-        thumbnail: '/image359.png',
-        full: '/image359.png',
+        thumbnail: '/IMG-20250624-WA0023_tumb.jpg',
+        full: '/IMG-20250624-WA0023.jpg',
     },
     {
-        thumbnail: '/image360.png',
-        full: '/image360.png',
+        thumbnail: '/IMG-20250624-WA0024_tumb.jpg',
+        full: '/IMG-20250624-WA0024.jpg',
     },
     {
-        thumbnail: '/image361.png',
-        full: '/image361.png',
+        thumbnail: '/IMG-20250624-WA0025_tumb.jpg',
+        full: '/IMG-20250624-WA0025.jpg',
+    },
+    {
+        thumbnail: '/IMG-20250624-WA0026_tumb.jpg',
+        full: '/IMG-20250624-WA0026.jpg',
+    },
+    {
+        thumbnail: '/IMG-20250624-WA0027_tumb.jpg',
+        full: '/IMG-20250624-WA0027.jpg',
+    },
+    {
+        thumbnail: '/IMG-20250624-WA0028_tumb.jpg',
+        full: '/IMG-20250624-WA0028.jpg',
+    },
+    {
+        thumbnail: '/IMG-20250624-WA0029_tumb.jpg',
+        full: '/IMG-20250624-WA0029.jpg',
+    },
+    {
+        thumbnail: '/IMG-20250624-WA0030_tumb.jpg',
+        full: '/IMG-20250624-WA0030.jpg',
     },
 ]);
 
 let lightbox = null;
+
+const slidesPerView = computed(() => {
+    if (isDesktop.value) return 3;
+    if (isTablet.value) return 3;
+    return 2;
+});
+
+const slideWidth = computed(() => {
+    if (isDesktop.value) return '390px';
+    if (isTablet.value) return '235px';
+    return '156px';
+});
 
 onMounted(() => {
     lightbox = new PhotoSwipeLightbox({
@@ -145,8 +181,8 @@ onMounted(() => {
 function openPhotoSwipe(index) {
     const items = slides.value.map((slide) => ({
         src: slide.full,
-        w: 1200, // ширина полноразмерного изображения (можно динамически подставить)
-        h: 800, // высота
+        w: 960, // ширина полноразмерного изображения (можно динамически подставить)
+        h: 1280, // высота
         msrc: slide.thumbnail, // превьюшка
     }));
 
@@ -165,11 +201,13 @@ function openPhotoSwipe(index) {
 <style scoped>
 .gallery-wrapper {
     max-width: 800px;
-    /* margin: 0 auto; */
+    margin: 50px auto 0;
 }
 
 .thumbnail-swiper {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    max-height: 400px;
+    height: auto; /* Автоматическая высота до лимита */
 }
 
 .thumbnail-img {

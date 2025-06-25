@@ -29,7 +29,7 @@
                     <a href="tel:+1234567890" class="md:px-4 lg:py-2">
                         <span
                             class="text-2xl lg:text-3xl text-blue font-extrabold uppercase"
-                            >8 800 888-08-08</span
+                            >8 960 272-78-84</span
                         >
                     </a>
                     <span

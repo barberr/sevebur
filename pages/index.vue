@@ -5,20 +5,20 @@
 
             <CallbackBlock />
 
-            <TypeofwellBlock />
+            <TypeofwellBlock id="section1" />
 
             <AdvantagesBlock />
 
             <DomesticuseBlock />
 
-            <WatersupplyBlock />
+            <WatersupplyBlock id="section2" />
 
             <WellconstructionBlock />
 
             <ReasonsBlock />
 
             <!-- <Gallery /> -->
-            <GallerySwiper />
+            <GallerySwiper id="section3" />
             <Footer />
         </div>
     </ClientOnly>
